@@ -24,7 +24,7 @@ author:
 description: >- # this means to ignore newlines until "baseurl:"
     Jakl's Blog
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://jakllp.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://blog.jakllp.com" # the base hostname & protocol for your site, e.g. http://example.com
 
 # Build settings
 theme: minima
