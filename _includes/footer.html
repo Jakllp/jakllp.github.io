@@ -3,16 +3,9 @@
 
   <div class="wrapper">
 
-            {% if page.layout != 'frontpage' %}
+    {% if page.layout != 'frontpage' %}
     <div class="footer-col-wrapper">
       <div class="footer-col">
-        <p class="feed-subscribe">
-          <a href="{{ 'feed.xml' | relative_url }}">
-            <svg class="svg-icon orange">
-              <use xlink:href="{{ 'assets/minima-social-icons.svg#rss' | relative_url }}"></use>
-            </svg><span>{{ site.data.translations['subscribe'][page.lang] }}</span>
-          </a>
-        </p>
       {%- if site.author %}
         <ul class="contact-list">
           {% if site.author.name -%}
@@ -22,34 +15,43 @@
             <li><a class="u-email" href="mailto:{{ site.author.email }}">{{ site.author.email }}</a></li>
           {%- endif %}
         </ul>
+
       {%- endif %}
       </div>
-      <div class="footer-col">
-        <p>{{ site.data.translations['description'][page.lang] }}</p>
+      <div class="footer-col , centered-text">
+          <div class="social-links">
+            {%- include social.html -%}
+          </div>
+          <a href="/impressum" style="color:#DCDCDC;" class="imprint">
+            {{ site.data.translations['imprint'][page.lang] }}
+          </a>
       </div>
-      <div class="footer-col">
+      <div class="footer-col , right-bound-text">
             {% assign posts=site.posts | where:"lang-ref", page.lang-ref | sort: 'lang' %}
             {% if posts.size == 0 %}
                 {% assign posts=site.pages | where:"lang-ref", page.lang-ref | sort: 'lang' %}
             {% endif %}
             {% if posts.size > 1 %}
             <footer class="lang-options">
-                <em>Read this page in a different language:</em>
+                <em>Languages:</em>
                 <ul>
                 {% for post in posts %}
-                <li><a href="{{ site.base-url }}{{ post.url }}" class="{{ post.lang }}" title="View in {{post.lang}}">{{ site.data.languages[post.lang].label }}</a></li>
+                <a href="{{ site.base-url }}{{ post.url }}" class="{{ post.lang }}" title="View in {{post.lang}}">{{ site.data.languages[post.lang].label }}</a><br>
                 {% endfor %}
                 </ul>
             </footer>
             {% endif %}
         </div>
     </div>
-    {% endif %} 
-
-    <div class="social-links">
-      {%- include social.html -%}
-    </div>
-
+    {% endif %}
   </div>
+
+  {%- if page.layout == 'frontpage' %}
+  <div style="text-align:center;">
+      <a href="/impressum" style="color:#DCDCDC;" class="imprint">
+        Imprint
+      </a>
+  </div>
+  {% endif %}
 
 </footer>

@@ -11,7 +11,7 @@ layout: default
         {{ page.date | date: date_format }}
       </time>
       {%- if page.modified_date -%}
-        ~ 
+        ~
         {%- assign mdate = page.modified_date | date_to_xmlschema -%}
         <time class="dt-modified" datetime="{{ mdate }}" itemprop="dateModified">
           {{ mdate | date: date_format }}
@@ -20,7 +20,16 @@ layout: default
       {%- if page.author -%}
         • {% for author in page.author %}
           <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-            <span class="p-author h-card" itemprop="name">{{ author }}</span></span>
+              Author:
+            <span class="p-author h-card" itemprop="name">{{ author }} </span></span>
+            {%- if forloop.last == false %}, {% endif -%}
+        {% endfor %}
+      {%- endif -%}
+      {%- if page.translator -%}
+        • {% for translator in page.translator %}
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+              {{ site.data.translations['translator'][page.lang] }}:
+            <span class="p-author h-card" itemprop="name">{{ translator }}</span></span>
             {%- if forloop.last == false %}, {% endif -%}
         {% endfor %}
       {%- endif -%}</p>
