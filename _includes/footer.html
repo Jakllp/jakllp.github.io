@@ -6,29 +6,30 @@
     {% if page.layout != 'frontpage' %}
     <div class="footer-col-wrapper">
       <div class="footer-col">
-      {%- if site.author %}
         <ul class="contact-list">
+            {% if page.layout != 'post' -%}
+              {{ site.description }}
+            {% endif -%}
           {% if page.author -%}
-            <li class="p-name">Author: {{ page.author | escape }}</li>
+            <li class="p-name">Author: {{ page.author | escape }}
+                {% if page.translator -%}
+                • Translator: {{ page.translator | escape }}
+                {% endif -%}
+            </li>
           {% endif -%}
           {% if page.translator -%}
             <li class="p-name">Translator: {{ page.translator | escape }}</li>
           {% endif -%}
 
-          {% if page.layout != 'post' -%}
-            {{ site.description }}
-          {% endif -%}
+          <a href="/impressum" style="color:#CCCCCC;" class="imprint">
+            <p>{{ site.data.translations['imprint'][page.lang] }}</p>
+          </a>
         </ul>
-
-      {%- endif %}
       </div>
       <div class="footer-col , centered-text">
           <div class="social-links">
             {%- include social.html -%}
           </div>
-          <a href="/impressum" style="color:#DCDCDC;" class="imprint">
-            {{ site.data.translations['imprint'][page.lang] }}
-          </a>
       </div>
       <div class="footer-col , right-bound-text">
             {% assign posts=site.posts | where:"lang-ref", page.lang-ref | sort: 'lang' %}
@@ -52,7 +53,7 @@
 
   {%- if page.layout == 'frontpage' %}
   <div style="text-align:center;">
-      <a href="/impressum" style="color:#DCDCDC;" class="imprint">
+      <a href="/impressum" style="color:#CCCCCC;" class="imprint">
         Imprint
       </a>
   </div>
