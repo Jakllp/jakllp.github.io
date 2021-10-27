@@ -21,9 +21,8 @@
 title: Jakl's Blog
 author:
     name: Jakl
-    email: jakltechstuff@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Jakl's Blog
+    Jakl's Blog
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://jakllp.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 
@@ -37,7 +36,7 @@ minima:
   social_links:
     twitter: jakllp
     github: jakllp
-    youtube_channel: UC8CXR0-3I70i1tfPg1PAE1g
+    youtube_channel: UCc94trx9C8v2U1StuyR_0Dw
 
 show_excerpts: true
 
