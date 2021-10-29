@@ -1,4 +1,4 @@
 # jakllp.github.io
-Dieses Repository generiert jakllp.github.io
+Dieses Repository generiert blog.jakllp.com
 
-This repository generates jakllp.github.io
+This repository generates blog.jakllp.com
