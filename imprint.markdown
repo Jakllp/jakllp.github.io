@@ -5,7 +5,7 @@ lang-ref: imprint
 permalink: /impressum/
 ---
 ### Nach §5 TMG:  
-Jakl  
+Jakl / Janno  
 c/o  
 Onkel Hans e.V.  
 Pestalozzistr. 13  
